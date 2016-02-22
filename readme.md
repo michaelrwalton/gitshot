@@ -4,15 +4,19 @@ Creates a `post-commit` hook to take a picture when you commit and upload it to 
 # Joining the fun
 - Clone the repo
 - Run ./install.sh
-- Edit ~/.gitshot/keys.py with your Twitter API keys (https://apps.twitter.com/, make a new app and generate tokens for your own account)
+- Edit ~/.gitshot/keys.py with your Twitter API keys (see below)
 - When you want to add the hook to a repo, run `gitshot init` and it'll make the hook for you!
 
-# Where do I get Twitter Keys?
-- Go to https://apps.twitter.com/ and log in with the account you want to post to
+# Where do I get Twitter keys?
+
+From the Twitter locksmith!
+No but seriously
+
+- Go to [https://apps.twitter.com/](https://apps.twitter.com/) and log in with the account you want to post to
 - Make a new app, call it anything
 - Click on "Keys and Access Tokens"
 - At the bottom, under *Your Access Token* create an access token for your account.
-- Refresh the page and copy API Key, API Secret, Access Token, and Access Token Secret into ~/.gitshot/keys.py
+- Refresh the page and copy API Key, API Secret, Access Token, and Access Token Secret into `~/.gitshot/keys.py`
 
 # Usage
 `gitshot init`
@@ -34,6 +38,9 @@ There's other stuff too, just check the help dialog.
 1. `/usr/local/bin` is in your PATH
 1. You have an active webcam (currently only uses the first found camera on OSX).
 
+# Wait, only on OSX?
+Yeah `imagesnap` was only built for OSX, but I'm looking into a better solution, stay tuned. This is only like v0.0.0.0.0.1
+
 # Example of the fun
 [@hhcctech](https://twitter.com/hhcctech)
 
@@ -41,6 +48,3 @@ Yes, your commit messages are part of the tweet, so maybe only `gitshot` on open
 
 # I want it added automatically to my new repos!
 Look up git templates and copy the post-commit hook into a default one.
-
-# imagesnap only works on OSX?
-Yeah I'm looking into a better solution, stay tuned. This is only like v0.0.0.0.0.1

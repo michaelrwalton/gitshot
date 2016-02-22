@@ -62,21 +62,31 @@ case "$1" in
     disable)
         if in_git_repo; then
             cd $HOOKS_DIR
-            mv git-shot git-shot.nofun
-            echo "Hook disabled. We won't judge. Run \"gitshot enable\" to turn it back on."
+            if [ -f git-shot ];
+            then
+                mv git-shot git-shot.nofun
+                echo "Hook disabled. We won't judge. Run \"gitshot enable\" to turn it back on."
+            else
+                echo "There's nothing here to disable :/"
+            fi
         fi
     ;;
     enable)
         if in_git_repo; then
             cd $HOOKS_DIR
-            mv git-shot.nofun git-shot
-            echo "Hook re-enabled. Fun membership reinstated."
+            if [ -f git-shot.nofun ];
+            then
+                mv git-shot.nofun git-shot
+                echo "Hook re-enabled. Fun membership reinstated."
+            else
+                echo "There's nothing here to re-enable :/ If you're trying to make the hook, run \"init\" instead"
+            fi
         fi
     ;;
     remove)
         if in_git_repo; then
             cd $HOOKS_DIR
-            rm -f git-shot
+            rm -f git-shot git-shot.nofun
             echo "Hook removed. Sorry you hate fun :("
         fi
     ;;
