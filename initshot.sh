@@ -42,8 +42,7 @@ HOOKS_DIR=.git/hooks/
 case "$1" in
     cleanup)
         rm -rf ~/.gitshot/images/*.jpg
-        echo "Image cache cleared. Don't worry, we also zipped them and sent them to the NSA."
-        echo "(no we didnt that's a joke)"
+        echo "Image cache cleared. Don't worry, we also zipped them up and sent them to the NSA."
     ;;
     status)
         if in_git_repo; then
@@ -84,12 +83,17 @@ case "$1" in
     init)
         if in_git_repo; then
             cd $HOOKS_DIR
-            touch git-shot
-            touch post-commit
-            chmod +wx git-shot
-            chmod +wx post-commit
-            create_hook
-            echo "Hook added. Take off that post-it note on your camera! Obama already knows what you look like."
+            if [ -f git-shot ]
+            then
+                echo "gitshot is already set up for this repo!"
+            else
+                touch git-shot
+                touch post-commit
+                chmod +wx git-shot
+                chmod +wx post-commit
+                create_hook
+                echo "Hook added. Take off that post-it note on your camera! Obama already knows what you look like."
+            fi
         fi
     ;;
     *)
