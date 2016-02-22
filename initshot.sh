@@ -6,9 +6,7 @@ COMMIT_MESSAGE=$(git log --format=%B -n 1 HEAD)
 python ~/.gitshot/take_and_upload.py "$COMMIT_MESSAGE" ~/.gitshot/images/$COMMITID.jpg "$COMMITID"
 EOF
     cat << 'EOF' > post-commit
-GIT_DIR='.git'
-cd ..
-source hooks/git-shot
+source .git/hooks/git-shot
 EOF
 }
 
