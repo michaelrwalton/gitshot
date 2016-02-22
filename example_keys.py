@@ -1,5 +1,5 @@
 """Twitter OAuth keys."""
 API_KEY = ""
 API_SECRET = ""
-CONSUMER_KEY = ""
-CONSUMER_SECRET = ""
+ACCESS_TOKEN = ""
+ACCESS_TOKEN_SECRET = ""
